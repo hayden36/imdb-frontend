@@ -1,0 +1,16 @@
+package views
+
+templ HTMLBase(title string) {
+	<!DOCTYPE html>
+	<head>
+		if title != "" {
+			<title>{ title } - IMDB</title>
+		} else {
+			<title>IMDB</title>
+		}
+		<link rel="stylesheet" href="/static/base.css"/>
+	</head>
+	<main>
+		{ children... }
+	</main>
+}

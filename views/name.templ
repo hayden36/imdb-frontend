@@ -1,0 +1,16 @@
+package views
+
+import "github.com/hayden36/imdb-frontend/structs"
+
+templ NameView(person structs.Person) {
+	@HTMLBase(person.Name) {
+		<h1>{ person.Name }</h1>
+		<p>{ person.Bio }</p>
+		<h2>Known For</h2>
+		<ul>
+			for _, item := range person.KnownFor {
+				<li><a href={ templ.URL(item.Link) }>{ item.Name }</a></li>
+			}
+		</ul>
+	}
+}

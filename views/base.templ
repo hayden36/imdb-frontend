@@ -2,15 +2,19 @@ package views
 
 templ HTMLBase(title string) {
 	<!DOCTYPE html>
+	<html lang="en">
 	<head>
+	    <meta charset="UTF-8">
 		if title != "" {
 			<title>{ title } - IMDB</title>
 		} else {
 			<title>IMDB</title>
 		}
 		<link rel="stylesheet" href="/static/base.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
-	<main>
+	<main class="px">
 		{ children... }
 	</main>
+	</html>
 }

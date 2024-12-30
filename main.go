@@ -9,5 +9,6 @@ func main() {
 	router := gin.Default()
 	router.Static("/static", "./static")
 	router.GET("/name/:name", handlers.HandleNameRoute())
+	router.GET("/title/:title", handlers.HandleTitleRoute())
 	router.Run(":3000")
 }

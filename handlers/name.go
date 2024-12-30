@@ -30,15 +30,16 @@ func HandleNameRoute() func(c *gin.Context) {
 		nameSelection := doc.Find(".hero__primary-text").First()
 		bioSelection := doc.Find(".ipc-html-content-inner-div").First()
 		var knownForSlice []structs.KnownFor
+		bioHtml, _ := bioSelection.Html()
 
-		doc.Find(".ipc-metadata-list-summary-item__tc").Each(func(i int, s *goquery.Selection) {
+		doc.Find("div.ipc-metadata-list-summary-item__tc").Each(func(i int, s *goquery.Selection) {
 			title := s.Find("a.ipc-metadata-list-summary-item__t").Text()
 			link := s.Find("a").AttrOr("href", "none")
 			tempKnownFor := structs.KnownFor{Name: title, Link: link}
 			knownForSlice = append(knownForSlice, tempKnownFor)
 		})
 
-		person := structs.Person{Name: nameSelection.Text(), Bio: bioSelection.Text(), KnownFor: knownForSlice}
+		person := structs.Person{Name: nameSelection.Text(), Bio: bioHtml, KnownFor: knownForSlice}
 
 		views.NameView(person).Render(c, c.Writer)
 	}

@@ -15,5 +15,6 @@ func main() {
 	router.GET("/", handlers.HandleHomeRoute())
 	router.GET("/name/:name", handlers.HandleNameRoute())
 	router.GET("/title/:title", handlers.HandleTitleRoute())
+	router.GET("/search", handlers.SearchHandler())
 	router.Run("0.0.0.0:3000")
 }

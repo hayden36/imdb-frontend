@@ -1,0 +1,26 @@
+package views
+
+import (
+	"github.com/hayden36/imdb-frontend/structs"
+	"strings"
+)
+
+templ SearchPage(query string, response structs.SearchResponse) {
+	@HTMLBase("Search: " + query) {
+		<ul>
+			for _, item := range response.D {
+				<li>
+					if strings.HasPrefix(item.ID,"nm") {
+						<a href={ "/name/" + templ.URL(item.ID) }>
+							{ item.Label }
+						</a>
+					} else if strings.HasPrefix(item.ID,"tt") {
+					<a href={ "/title/" + templ.URL(item.ID) }>
+						{ item.Label }
+					</a>
+					}
+				</li>
+			}
+		</ul>
+	}
+}

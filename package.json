@@ -1,0 +1,15 @@
+{
+  "name": "imdb-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/hayden36/imdb-frontend#readme",
+  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tailwindcss build -i static/input.css -o static/tailwind.css",
+    "watch": "tailwindcss build -i static/input.css -o static/tailwind.css --watch"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

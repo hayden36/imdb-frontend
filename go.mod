@@ -4,7 +4,7 @@ go 1.23.3
 
 require (
 	github.com/PuerkitoBio/goquery v1.10.1 // indirect
-	github.com/a-h/templ v0.2.793 // indirect
+	github.com/a-h/templ v0.3.819 // indirect
 	github.com/andybalholm/cascadia v1.3.3 // indirect
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/bytedance/sonic/loader v0.1.1 // indirect

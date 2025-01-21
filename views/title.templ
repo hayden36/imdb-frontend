@@ -8,10 +8,9 @@ templ TitleView(title structs.MovieShow) {
 		<p>{ title.Plot }</p>
 		<h2>Top Cast</h2>
 		<ul>
-		for _, item := range title.TopCast {
+			for _, item := range title.TopCast {
 				<li><a href={ templ.URL(item.Link) }>{ item.Name }</a></li>
-		}
-
+			}
 		</ul>
 	}
 }

@@ -12,8 +12,8 @@ import (
 
 func SearchHandler() func(c *gin.Context) {
 	return func(c *gin.Context) {
-		nameParameter := c.Query("q")
-		req, _ := http.NewRequest("GET", "https://v3.sg.media-imdb.com/suggestion/x/"+nameParameter+".json?includeVideos=0", nil)
+		searchQuery := c.Query("q")
+		req, _ := http.NewRequest("GET", "https://v3.sg.media-imdb.com/suggestion/x/"+searchQuery+".json?includeVideos=0", nil)
 		req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0")
 
 		res, err := http.DefaultClient.Do(req)

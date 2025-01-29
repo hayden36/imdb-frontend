@@ -3,8 +3,8 @@ package handlers
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"github.com/hayden36/imdb-frontend/pages"
 	"github.com/hayden36/imdb-frontend/structs"
-	"github.com/hayden36/imdb-frontend/views"
 	"io"
 	"log"
 	"net/http"
@@ -28,6 +28,6 @@ func SearchHandler() func(c *gin.Context) {
 		body, _ := io.ReadAll(res.Body)
 		err = json.Unmarshal(body, &response)
 
-		views.SearchPage(response.Q, response).Render(c, c.Writer)
+		pages.SearchPage(response.Q, response).Render(c, c.Writer)
 	}
 }

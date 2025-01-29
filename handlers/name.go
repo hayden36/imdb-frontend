@@ -3,8 +3,8 @@ package handlers
 import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
+	"github.com/hayden36/imdb-frontend/pages"
 	"github.com/hayden36/imdb-frontend/structs"
-	"github.com/hayden36/imdb-frontend/views"
 	"log"
 	"net/http"
 )
@@ -41,6 +41,6 @@ func HandleNameRoute() func(c *gin.Context) {
 
 		person := structs.Person{Name: nameSelection.Text(), Bio: bioHtml, KnownFor: knownForSlice}
 
-		views.NameView(person).Render(c, c.Writer)
+		pages.NameView(person).Render(c, c.Writer)
 	}
 }

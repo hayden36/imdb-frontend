@@ -1,0 +1,1 @@
+<form method=\"GET\" action=\"/search\"><input name=\"q\" class=\"border border-1 border-black rounded-sm bg-slate-100 placeholder:italic\" type=\"search\" id=\"search\" placeholder=\"Search...\"> <button class=\"bg-violet-500 hover:bg-violet-600 focus:ring focus:ring-violet-300 rounded-sm px-4 py-1 shadow-sm text-white\">Search</button></form>

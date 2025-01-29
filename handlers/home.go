@@ -2,11 +2,11 @@ package handlers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hayden36/imdb-frontend/views"
+	"github.com/hayden36/imdb-frontend/pages"
 )
 
 func HandleHomeRoute() func(c *gin.Context) {
 	return func(c *gin.Context) {
-		views.HomeView().Render(c, c.Writer)
+		pages.HomeView().Render(c, c.Writer)
 	}
 }

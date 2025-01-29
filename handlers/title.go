@@ -3,8 +3,8 @@ package handlers
 import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
+	"github.com/hayden36/imdb-frontend/pages"
 	"github.com/hayden36/imdb-frontend/structs"
-	"github.com/hayden36/imdb-frontend/views"
 	"log"
 	"net/http"
 )
@@ -39,7 +39,7 @@ func HandleTitleRoute() func(c *gin.Context) {
 
 		movie := structs.MovieShow{Name: nameSelection.Text(), Plot: plotSelection.Text(), TopCast: topCastSlice}
 
-		views.TitleView(movie).Render(c, c.Writer)
+		pages.TitleView(movie).Render(c, c.Writer)
 
 	}
 }

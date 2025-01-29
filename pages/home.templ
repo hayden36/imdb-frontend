@@ -1,0 +1,10 @@
+package pages
+
+import "github.com/hayden36/imdb-frontend/components"
+
+templ HomeView() {
+	@HTMLBase("IMDB Frontend") {
+		<h1 class="text-2xl">IMDB Frontend</h1>
+		@components.SearchBox()
+	}
+}

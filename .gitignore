@@ -20,7 +20,9 @@ go.work.sum
 .idea/
 
 # Templ
-views/*_templ.*
+pages/*_templ.*
+components/*_templ.*
+
 
 node_modules/
 

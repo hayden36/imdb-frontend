@@ -1,6 +1,0 @@
-<!doctype html><html lang=\"en\"><head><meta charset=\"UTF-8\">
-<title>
-</title>
-<title>IMDB Frontend</title>
-<link rel=\"stylesheet\" href=\"/static/tailwind.css\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></head><main class=\"font-sans\">
-</main></html>

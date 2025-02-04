@@ -1,8 +1,10 @@
 package components
 
-templ Header() {
+templ Header(showSearchBox bool) {
 	<header class="flex place-content-between bg-yellow-500 p-5 items-center">
-		<p class="text-2xl">IMDB Frontend</p>
-		@SearchBox()
+		<p class="text-2xl font-bold  "><a href="/" class="no-underline text-black">IMDB Frontend</a></p>
+		if showSearchBox == true {
+			@SearchBox()
+		}
 	</header>
 }

@@ -4,7 +4,9 @@ import "github.com/hayden36/imdb-frontend/components"
 
 templ HomeView() {
 	@HTMLBase("IMDB Frontend") {
-		<h1 class="text-2xl">IMDB Frontend</h1>
-		@components.SearchBox()
+		@components.Header(false)
+		<div class="flex justify-center my-5">
+			@components.SearchBox()
+		</div>
 	}
 }

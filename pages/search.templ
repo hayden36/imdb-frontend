@@ -10,16 +10,18 @@ import (
 templ SearchPage(query string, response structs.SearchResponse) {
 	{{ searchString, _ := url.QueryUnescape(query) }}
 	@HTMLBase("Search: " + searchString) {
-		@components.Header()
+		@components.Header(true)
 		<div class="px-5">
 			<h2 class="text-3xl mb-5 ">People</h2>
 			for _, item := range response.D {
 				if strings.HasPrefix(item.ID,"nm") {
-					<div class=" my-2 flex items-center gap-x-6">
+					<div class="my-2 flex items-center gap-x-6">
 						if item.Image.ImageURL != "" {
 							<img src={ item.Image.ImageURL } class="w-24 h-24 rounded-md object-cover "/>
 						} else {
-							<img src="https://placehold.co/10" class="w-24 h-24 rounded-md object-cover "/>
+							<div class="w-24 h-24 bg-gray-300 text-center place-content-center rounded-md">
+								<p class="mso text-3xl">hide_image</p>
+							</div>
 						}
 						<div>
 							<p class="text-lg font-bold">

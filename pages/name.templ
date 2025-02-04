@@ -1,17 +1,25 @@
 package pages
 
-import "github.com/hayden36/imdb-frontend/structs"
+import (
+	"github.com/hayden36/imdb-frontend/components"
+	"github.com/hayden36/imdb-frontend/structs"
+)
 
 templ NameView(person structs.Person) {
 	@HTMLBase(person.Name) {
+		@components.Header(true)
+		<div class="m-5">
 		<h1 class="text-2xl mb-5">{ person.Name }</h1>
-		<p>@templ.Raw(person.Bio)
-</p>
+		<p>
+			@templ.Raw(person.Bio)
+		</p>
 		<h2>Known For</h2>
 		<ul>
 			for _, item := range person.KnownFor {
 				<li><a href={ templ.URL(item.Link) }>{ item.Name }</a></li>
 			}
 		</ul>
+		</div>
 	}
 }
+	

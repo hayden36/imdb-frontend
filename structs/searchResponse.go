@@ -1,10 +1,10 @@
 package structs
 
 type SearchResponse struct {
-	D []DObjects `json:"d"`
-	Q string     `json:"q"`
+	Data  []SearchData `json:"d"`
+	Query string       `json:"q"`
 }
-type DObjects struct {
+type SearchData struct {
 	Image    ImageObject `json:"i"`
 	ID       string      `json:"id"`
 	Label    string      `json:"l"`

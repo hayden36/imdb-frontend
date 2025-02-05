@@ -3,6 +3,7 @@ package pages
 import (
 	"github.com/hayden36/imdb-frontend/components"
 	"github.com/hayden36/imdb-frontend/structs"
+	"github.com/hayden36/imdb-frontend/utils"
 	"net/url"
 	"strings"
 )
@@ -12,8 +13,12 @@ templ SearchPage(query string, response structs.SearchResponse) {
 	@HTMLBase("Search: " + searchString) {
 		@components.Header(true)
 		<div class="px-5">
-			<h2 class="text-3xl mb-5 ">People</h2>
-			for _, item := range response.D {
+			<h2 class="text-2xl mt-3 mb-5">Results for "{ searchString }"</h2>
+			<h2 class="text-xl">People</h2>
+			if len(response.Data) == 0 {
+				<p>No results found.</p>
+			}
+			for _, item := range response.Data {
 				if strings.HasPrefix(item.ID,"nm") {
 					<div class="my-2 flex items-center gap-x-6">
 						if item.Image.ImageURL != "" {
@@ -25,7 +30,7 @@ templ SearchPage(query string, response structs.SearchResponse) {
 						}
 						<div>
 							<p class="text-lg font-bold">
-								<a href={ "/name/" + templ.URL(item.ID) }>
+								<a href={ "/name/" + templ.URL(utils.RemoveRefs(item.ID)) }>
 									{ item.Label }
 								</a>
 							</p>
@@ -36,18 +41,33 @@ templ SearchPage(query string, response structs.SearchResponse) {
 					</div>
 				}
 			}
-			<h2 class="text-xl">Titles</h2>
-			<ul class="list-decimal">
-				for _, item := range response.D {
-					if strings.HasPrefix(item.ID,"tt") {
-						<li>
-							<a href={ "/title/" + templ.URL(item.ID) }>
-								{ item.Label }
-							</a>
-						</li>
-					}
+			<h2 class="text-xl mt-5">Titles</h2>
+			if len(response.Data) == 0 {
+				<p>No results found.</p>
+			}
+			for _, item := range response.Data {
+				if strings.HasPrefix(item.ID,"tt") {
+					<div class="my-2 flex items-center gap-x-6">
+						if item.Image.ImageURL != "" {
+							<img src={ item.Image.ImageURL } class="w-24 h-24 rounded-md object-cover "/>
+						} else {
+							<div class="w-24 h-24 bg-gray-300 text-center place-content-center rounded-md">
+								<p class="mso text-3xl">hide_image</p>
+							</div>
+						}
+						<div>
+							<p class="text-lg font-bold">
+								<a href={ "/title/" + templ.URL(utils.RemoveRefs(item.ID)) }>
+									{ item.Label }
+								</a>
+							</p>
+							<p class="font-light">
+								{ item.Subtitle }
+							</p>
+						</div>
+					</div>
 				}
-			</ul>
+			}
 		</div>
 	}
 }

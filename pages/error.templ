@@ -1,0 +1,16 @@
+package pages
+
+import (
+	"github.com/hayden36/imdb-frontend/components"
+	"strconv"
+)
+
+templ Error(code int, reason string) {
+	@HTMLBase("Error") {
+		@components.Header(true)
+		<div class="m-5 flex items-center flex-col justify-center grow">
+			<h1 class="text-3xl font-bold">{ strconv.Itoa(code) } Error</h1>
+			<p class="text-xl">{ reason }</p>
+		</div>
+	}
+}

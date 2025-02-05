@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/hayden36/imdb-frontend/handlers"
+	"github.com/hayden36/imdb-frontend/pages"
 )
 
 // https://xeiaso.net/blog/using-tailwind-go/
@@ -16,5 +17,10 @@ func main() {
 	router.GET("/name/:name", handlers.HandleNameRoute())
 	router.GET("/title/:title", handlers.HandleTitleRoute())
 	router.GET("/search", handlers.SearchHandler())
-	router.Run("0.0.0.0:3000")
+
+	router.NoRoute(func(c *gin.Context) {
+		pages.Error(404, "Page not found.").Render(c, c.Writer)
+	})
+
+	router.Run("127.0.0.1:3000")
 }

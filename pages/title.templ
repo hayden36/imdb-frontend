@@ -1,6 +1,9 @@
 package pages
 
-import "github.com/hayden36/imdb-frontend/structs"
+import (
+	"github.com/hayden36/imdb-frontend/structs"
+	"github.com/hayden36/imdb-frontend/utils"
+)
 
 templ TitleView(title structs.MovieShow) {
 	@HTMLBase(title.Name) {
@@ -9,7 +12,7 @@ templ TitleView(title structs.MovieShow) {
 		<h2>Top Cast</h2>
 		<ul>
 			for _, item := range title.TopCast {
-				<li><a href={ templ.URL(item.Link) }>{ item.Name }</a></li>
+				<li><a href={ templ.URL(utils.RemoveRefs(item.Link)) }>{ item.Name }</a></li>
 			}
 		</ul>
 	}

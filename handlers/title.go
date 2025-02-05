@@ -1,19 +1,21 @@
 package handlers
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/PuerkitoBio/goquery"
 	"github.com/gin-gonic/gin"
 	"github.com/hayden36/imdb-frontend/pages"
 	"github.com/hayden36/imdb-frontend/structs"
-	"log"
-	"net/http"
+	"github.com/hayden36/imdb-frontend/utils"
 )
 
 func HandleTitleRoute() func(c *gin.Context) {
 	return func(c *gin.Context) {
 		titleParameter := c.Param("title")
 		req, _ := http.NewRequest("GET", "https://imdb.com/title/"+titleParameter, nil)
-		req.Header.Set("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:133.0) Gecko/20100101 Firefox/133.0")
+		req.Header.Set("User-Agent", utils.USER_AGENT)
 
 		res, err := http.DefaultClient.Do(req)
 

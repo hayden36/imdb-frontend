@@ -12,7 +12,7 @@ templ NameView(person structs.Person) {
 	@HTMLBase(person.Name) {
 		@components.Header(true)
 		<div class="m-5">
-			<div class="flex flex-row gap-4 items-center bg-gray-200 rounded-md">
+			<div class="flex flex-col md:flex-row gap-4 items-center bg-gray-200 rounded-md">
 				<img loading="lazy" src={ utils.ChangeImageParams(person.Image) } alt={ fmt.Sprintf("Image of %s", person.Name) } class="h-64 w-60 object-cover"/>
 				<div>
 					<h1 class="text-2xl mb-5 font-semibold">{ person.Name }</h1>
